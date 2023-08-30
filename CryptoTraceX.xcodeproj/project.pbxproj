@@ -30,8 +30,6 @@
 		6DE428172A9F68DB00617F75 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		6DE428192A9F690100617F75 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		6DE4281C2A9F6A2400617F75 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
-		6DE4282A2A9F96A900617F75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6DE4282B2A9F96A900617F75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DE428322A9F97E300617F75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FC9FB8AEB848AB7FCE5ABF0 /* Pods-CryptoTraceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTraceX.release.xcconfig"; path = "Target Support Files/Pods-CryptoTraceX/Pods-CryptoTraceX.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				6D1715002A8C342500ADC502 /* CryptoTraceX */,
-				6DE428292A9F96A900617F75 /* SupportingFiles */,
 				6D1714FF2A8C342500ADC502 /* Products */,
 				C82DA52D81A7F2F9ED4A6F96 /* Pods */,
 				327271626592AC6D65B224FC /* Frameworks */,
@@ -87,13 +84,11 @@
 		6D1715002A8C342500ADC502 /* CryptoTraceX */ = {
 			isa = PBXGroup;
 			children = (
-				6DE428282A9F968100617F75 /* SupportingFiles */,
+				6DE428372A9F99CD00617F75 /* Resources */,
+				6DE428362A9F99BA00617F75 /* Core */,
 				6DE4281B2A9F69DA00617F75 /* APIConstants */,
 				6D143D842A9951B500A159A0 /* Service */,
-				6D1715052A8C342500ADC502 /* ViewController.swift */,
-				6D17150A2A8C342700ADC502 /* Assets.xcassets */,
-				6D17150C2A8C342700ADC502 /* LaunchScreen.storyboard */,
-				6DE428322A9F97E300617F75 /* Info.plist */,
+				6DE428352A9F98FD00617F75 /* SupportingFiles */,
 			);
 			path = CryptoTraceX;
 			sourceTree = "<group>";
@@ -106,22 +101,31 @@
 			path = APIConstants;
 			sourceTree = "<group>";
 		};
-		6DE428282A9F968100617F75 /* SupportingFiles */ = {
+		6DE428352A9F98FD00617F75 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				6DE428322A9F97E300617F75 /* Info.plist */,
 				6D1715012A8C342500ADC502 /* AppDelegate.swift */,
 				6D1715032A8C342500ADC502 /* SceneDelegate.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		6DE428292A9F96A900617F75 /* SupportingFiles */ = {
+		6DE428362A9F99BA00617F75 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				6DE4282B2A9F96A900617F75 /* AppDelegate.swift */,
-				6DE4282A2A9F96A900617F75 /* SceneDelegate.swift */,
+				6D17150C2A8C342700ADC502 /* LaunchScreen.storyboard */,
+				6D1715052A8C342500ADC502 /* ViewController.swift */,
 			);
-			path = SupportingFiles;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		6DE428372A9F99CD00617F75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6D17150A2A8C342700ADC502 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C82DA52D81A7F2F9ED4A6F96 /* Pods */ = {
@@ -393,7 +397,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptoTraceX/Info.plist;
+				INFOPLIST_FILE = CryptoTraceX/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -421,7 +425,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptoTraceX/Info.plist;
+				INFOPLIST_FILE = CryptoTraceX/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
