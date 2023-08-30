@@ -12,6 +12,9 @@
 		6D1715062A8C342500ADC502 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1715052A8C342500ADC502 /* ViewController.swift */; };
 		6D17150B2A8C342700ADC502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D17150A2A8C342700ADC502 /* Assets.xcassets */; };
 		6D17150E2A8C342700ADC502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D17150C2A8C342700ADC502 /* LaunchScreen.storyboard */; };
+		6DE428182A9F68DB00617F75 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE428172A9F68DB00617F75 /* APICaller.swift */; };
+		6DE4281A2A9F690100617F75 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE428192A9F690100617F75 /* URLBuilder.swift */; };
+		6DE4281D2A9F6A2400617F75 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4281C2A9F6A2400617F75 /* APIConstants.swift */; };
 		FDFA6009BC43DE535C066B87 /* Pods_CryptoTraceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130159B620F879F734C6EBC9 /* Pods_CryptoTraceX.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +27,12 @@
 		6D1715052A8C342500ADC502 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6D17150A2A8C342700ADC502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D17150D2A8C342700ADC502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6D17150F2A8C342700ADC502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DE428172A9F68DB00617F75 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		6DE428192A9F690100617F75 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
+		6DE4281C2A9F6A2400617F75 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		6DE4282A2A9F96A900617F75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6DE4282B2A9F96A900617F75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6DE428322A9F97E300617F75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FC9FB8AEB848AB7FCE5ABF0 /* Pods-CryptoTraceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTraceX.release.xcconfig"; path = "Target Support Files/Pods-CryptoTraceX/Pods-CryptoTraceX.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,10 +56,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6D143D842A9951B500A159A0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6DE428172A9F68DB00617F75 /* APICaller.swift */,
+				6DE428192A9F690100617F75 /* URLBuilder.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		6D1714F52A8C342500ADC502 = {
 			isa = PBXGroup;
 			children = (
 				6D1715002A8C342500ADC502 /* CryptoTraceX */,
+				6DE428292A9F96A900617F75 /* SupportingFiles */,
 				6D1714FF2A8C342500ADC502 /* Products */,
 				C82DA52D81A7F2F9ED4A6F96 /* Pods */,
 				327271626592AC6D65B224FC /* Frameworks */,
@@ -69,14 +87,41 @@
 		6D1715002A8C342500ADC502 /* CryptoTraceX */ = {
 			isa = PBXGroup;
 			children = (
-				6D1715012A8C342500ADC502 /* AppDelegate.swift */,
-				6D1715032A8C342500ADC502 /* SceneDelegate.swift */,
+				6DE428282A9F968100617F75 /* SupportingFiles */,
+				6DE4281B2A9F69DA00617F75 /* APIConstants */,
+				6D143D842A9951B500A159A0 /* Service */,
 				6D1715052A8C342500ADC502 /* ViewController.swift */,
 				6D17150A2A8C342700ADC502 /* Assets.xcassets */,
 				6D17150C2A8C342700ADC502 /* LaunchScreen.storyboard */,
-				6D17150F2A8C342700ADC502 /* Info.plist */,
+				6DE428322A9F97E300617F75 /* Info.plist */,
 			);
 			path = CryptoTraceX;
+			sourceTree = "<group>";
+		};
+		6DE4281B2A9F69DA00617F75 /* APIConstants */ = {
+			isa = PBXGroup;
+			children = (
+				6DE4281C2A9F6A2400617F75 /* APIConstants.swift */,
+			);
+			path = APIConstants;
+			sourceTree = "<group>";
+		};
+		6DE428282A9F968100617F75 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6D1715012A8C342500ADC502 /* AppDelegate.swift */,
+				6D1715032A8C342500ADC502 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		6DE428292A9F96A900617F75 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6DE4282B2A9F96A900617F75 /* AppDelegate.swift */,
+				6DE4282A2A9F96A900617F75 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		C82DA52D81A7F2F9ED4A6F96 /* Pods */ = {
@@ -202,9 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DE4281A2A9F690100617F75 /* URLBuilder.swift in Sources */,
 				6D1715062A8C342500ADC502 /* ViewController.swift in Sources */,
+				6DE4281D2A9F6A2400617F75 /* APIConstants.swift in Sources */,
 				6D1715022A8C342500ADC502 /* AppDelegate.swift in Sources */,
 				6D1715042A8C342500ADC502 /* SceneDelegate.swift in Sources */,
+				6DE428182A9F68DB00617F75 /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
