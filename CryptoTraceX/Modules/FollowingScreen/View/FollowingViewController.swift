@@ -23,10 +23,13 @@ final class FollowingViewController: UIViewController, UITableViewDataSource, UI
             static let tableViewHeaderViewHeight: CGFloat = 20
             static let tableViewTopOffset : CGFloat = 30
             static let tableViewCellHeight : CGFloat = 100
+            static let emptyFavoritesLabelNumberOfLines : CGFloat = 0
+            static let emptyFavoritesLabelSideInset : CGFloat = 50
         }
         
         enum Text {
             static let navigationTitleText: String = "Your Watchlist"
+            static let emptyFavoritesLabelText: String = "To add a cryptocurrency to favorites, tap on any of them and press the star icon in the top right corner."
             static let backButtonText: String = "Back"
             static let savedNotification : String = "saved"
             static let deletedNotification : String = "deleted"
@@ -52,6 +55,17 @@ final class FollowingViewController: UIViewController, UITableViewDataSource, UI
         shouldShowPriceLabel: false,
         shouldShowReloadButton: false
     )
+    
+    private lazy var emptyFavoritesLabel: UILabel = {
+        let label = UILabel()
+        label.text = Constants.Text.emptyFavoritesLabelText
+        label.textColor = .lightGray
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 22)
+        label.numberOfLines = Int(Constants.Layout.emptyFavoritesLabelNumberOfLines)
+        label.isHidden = true
+        return label
+    }()
     
     // MARK: - Properties
     
@@ -81,6 +95,7 @@ final class FollowingViewController: UIViewController, UITableViewDataSource, UI
         [
             followingCoinsTableView,
             tableViewHeaderView,
+            emptyFavoritesLabel
         ].forEach {
             view.addSubview($0)
         }
@@ -126,6 +141,11 @@ final class FollowingViewController: UIViewController, UITableViewDataSource, UI
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(dynamicOffsetForHeaderView)
             make.height.equalTo(Constants.Layout.tableViewHeaderViewHeight)
+        }
+        
+        emptyFavoritesLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(Constants.Layout.emptyFavoritesLabelSideInset)
         }
         
         followingCoinsTableView.snp.makeConstraints { make in
@@ -185,6 +205,12 @@ extension FollowingViewController: FollowingViewControllerProtocol {
     func getFollowingCoins(coins: [CoinItem]) {
         self.followingCoins = coins
         self.followingCoinsTableView.reloadData()
+        
+        if followingCoins.isEmpty {
+            emptyFavoritesLabel.isHidden = false
+        } else {
+            emptyFavoritesLabel.isHidden = true
+        }
     }
 }
 
