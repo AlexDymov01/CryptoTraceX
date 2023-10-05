@@ -87,7 +87,7 @@ final class MainTabBarViewController: UITabBarController {
             
         case .overview:
             let overviewViewController = UINavigationController(
-                rootViewController: UIViewController()
+                rootViewController: OverviewBuilder().toPresent()
             )
             setupTabBarItem(
                 for: overviewViewController,
