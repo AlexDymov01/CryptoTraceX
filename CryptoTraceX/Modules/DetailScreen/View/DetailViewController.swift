@@ -99,6 +99,7 @@ final class DetailViewController: UIViewController, UITableViewDelegate, UITable
         )
         navigationItem.rightBarButtonItem = rightBarButtonItem
         rightBarButtonItem.tintColor = .white
+        rightBarButtonItem.action = #selector(saveToTheFollowing(sender:))
     }
     
     private func setButtonImage(saved: Bool) {
@@ -114,6 +115,20 @@ final class DetailViewController: UIViewController, UITableViewDelegate, UITable
         
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
+        }
+    }
+    
+    @objc private func saveToTheFollowing(sender: UIBarButtonItem) {
+        guard let coin = coin  else { return }
+        
+        presenter?.isCoinSaved(withName: coin.name) { isCoinSaved in
+            if isCoinSaved {
+                self.presenter?.deleteCoinItem(withName: coin.name)
+                self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: Constants.Image.unsavedImage)
+            } else {
+                self.presenter?.saveToTheDataBase(coin: coin, id: self.coinID ?? Constants.Text.emptyText)
+                self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: Constants.Image.savedImage)
+            }
         }
     }
     

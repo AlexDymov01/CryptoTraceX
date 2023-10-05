@@ -109,7 +109,7 @@ final class MainTabBarViewController: UITabBarController {
             
         case .following:
             let followingViewController = UINavigationController(
-                rootViewController: UIViewController()
+                rootViewController: FollowingBuilder().toPresent()
             )
             setupTabBarItem(
                 for: followingViewController,

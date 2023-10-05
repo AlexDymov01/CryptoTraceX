@@ -40,6 +40,8 @@
 		6D4ADBAE2ACF48CB002662D0 /* FollowingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADBAD2ACF48CB002662D0 /* FollowingPresenter.swift */; };
 		6D4ADBB02ACF48F6002662D0 /* FollowingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADBAF2ACF48F6002662D0 /* FollowingRouter.swift */; };
 		6D4ADBB42ACF496C002662D0 /* FollowingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADBB32ACF496C002662D0 /* FollowingBuilder.swift */; };
+		6D4ADBB72ACF5807002662D0 /* DataPersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADBB62ACF5807002662D0 /* DataPersistanceManager.swift */; };
+		6D4ADBBA2ACF5831002662D0 /* FollowingCoinModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADBB82ACF5831002662D0 /* FollowingCoinModel.xcdatamodeld */; };
 		6DE428182A9F68DB00617F75 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE428172A9F68DB00617F75 /* APICaller.swift */; };
 		6DE4281A2A9F690100617F75 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE428192A9F690100617F75 /* URLBuilder.swift */; };
 		6DE4281D2A9F6A2400617F75 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4281C2A9F6A2400617F75 /* APIConstants.swift */; };
@@ -83,6 +85,8 @@
 		6D4ADBAD2ACF48CB002662D0 /* FollowingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingPresenter.swift; sourceTree = "<group>"; };
 		6D4ADBAF2ACF48F6002662D0 /* FollowingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingRouter.swift; sourceTree = "<group>"; };
 		6D4ADBB32ACF496C002662D0 /* FollowingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingBuilder.swift; sourceTree = "<group>"; };
+		6D4ADBB62ACF5807002662D0 /* DataPersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistanceManager.swift; sourceTree = "<group>"; };
+		6D4ADBB92ACF5831002662D0 /* FollowingCoinModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingCoinModel.xcdatamodel; sourceTree = "<group>"; };
 		6DE428172A9F68DB00617F75 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		6DE428192A9F690100617F75 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		6DE4281C2A9F6A2400617F75 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 		6D1715002A8C342500ADC502 /* CryptoTraceX */ = {
 			isa = PBXGroup;
 			children = (
+				6D4ADBB52ACF54FE002662D0 /* DataPersistance */,
 				6D4ADB8A2ACF3B35002662D0 /* Utilities */,
 				6D2E2B482ACECEA7002028EE /* Components */,
 				6DE428362A9F99BA00617F75 /* Modules */,
@@ -436,6 +441,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6D4ADBB52ACF54FE002662D0 /* DataPersistance */ = {
+			isa = PBXGroup;
+			children = (
+				6D4ADBB62ACF5807002662D0 /* DataPersistanceManager.swift */,
+				6D4ADBB82ACF5831002662D0 /* FollowingCoinModel.xcdatamodeld */,
+			);
+			path = DataPersistance;
+			sourceTree = "<group>";
+		};
 		6DE4281B2A9F69DA00617F75 /* APIConstants */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +624,7 @@
 				6D4ADB962ACF3DE0002662D0 /* TrendingModel.swift in Sources */,
 				6D4ADB842ACF2FFE002662D0 /* DescriptionTableViewCell.swift in Sources */,
 				6D4ADB7C2ACF2F9E002662D0 /* DetailViewController.swift in Sources */,
+				6D4ADBB72ACF5807002662D0 /* DataPersistanceManager.swift in Sources */,
 				6D4ADBAC2ACF48BD002662D0 /* FollowingViewController.swift in Sources */,
 				6D2E2B452ACE3521002028EE /* OverviewRouter.swift in Sources */,
 				6D4ADBA22ACF3ECA002662D0 /* SimplifiedTableViewCell.swift in Sources */,
@@ -620,6 +635,7 @@
 				6D4ADB792ACF2F67002662D0 /* DetailModel.swift in Sources */,
 				6D4ADBB02ACF48F6002662D0 /* FollowingRouter.swift in Sources */,
 				6D2E2B412ACE34EC002028EE /* OverviewViewController.swift in Sources */,
+				6D4ADBBA2ACF5831002662D0 /* FollowingCoinModel.xcdatamodeld in Sources */,
 				6D2E2B432ACE3500002028EE /* OverviewPresenter.swift in Sources */,
 				6D4ADBAE2ACF48CB002662D0 /* FollowingPresenter.swift in Sources */,
 				6D1715042A8C342500ADC502 /* SceneDelegate.swift in Sources */,
@@ -834,6 +850,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6D4ADBB82ACF5831002662D0 /* FollowingCoinModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D4ADBB92ACF5831002662D0 /* FollowingCoinModel.xcdatamodel */,
+			);
+			currentVersion = 6D4ADBB92ACF5831002662D0 /* FollowingCoinModel.xcdatamodel */;
+			path = FollowingCoinModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6D1714F62A8C342500ADC502 /* Project object */;
 }

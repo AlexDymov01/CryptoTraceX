@@ -10,6 +10,10 @@ import Foundation
 protocol DetailPresenterProtocol: AnyObject {
     
     func getDetailInfo()
+    
+    func saveToTheDataBase(coin: CoinDetailModel, id: String)
+    func deleteCoinItem(withName name: String)
+    func isCoinSaved(withName name: String, completion: @escaping (Bool) -> Void)
 }
 
 
@@ -57,4 +61,22 @@ final class DetailPresenter: DetailPresenterProtocol {
         }
     }
     
+    func saveToTheDataBase(coin: CoinDetailModel, id: String) {
+        DataPersistanceManager.shared.saveCoinWith(model: coin, id: id) { result in
+            switch result {
+            case .success():
+                NotificationCenter.default.post(name: NSNotification.Name("saved"), object: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteCoinItem(withName name: String) {
+        DataPersistanceManager.shared.deleteCoinItem(withName: name)
+    }
+    
+    func isCoinSaved(withName name: String, completion: @escaping (Bool) -> Void) {
+        DataPersistanceManager.shared.isCoinSaved(withName: name, completion: completion)
+    }
 }

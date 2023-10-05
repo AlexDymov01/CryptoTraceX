@@ -27,7 +27,6 @@ final class FollowingRouter: FollowingRouterProtocol {
     // MARK: - Methods
     
     func showDetailScreen(coinName: String) {
-        print(coinName)
         let detailViewController = DetailBuilder(coinName: coinName).toPresent()
         detailViewController.modalPresentationStyle = .fullScreen
         followingViewController?.show(detailViewController, sender: nil)
