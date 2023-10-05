@@ -133,6 +133,7 @@
 		6D143D842A9951B500A159A0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6DE4281B2A9F69DA00617F75 /* APIConstants */,
 				6DE428172A9F68DB00617F75 /* APICaller.swift */,
 				6DE428192A9F690100617F75 /* URLBuilder.swift */,
 			);
@@ -160,12 +161,11 @@
 		6D1715002A8C342500ADC502 /* CryptoTraceX */ = {
 			isa = PBXGroup;
 			children = (
+				6D143D842A9951B500A159A0 /* Service */,
 				6D4ADBB52ACF54FE002662D0 /* DataPersistance */,
-				6D4ADB8A2ACF3B35002662D0 /* Utilities */,
 				6D2E2B482ACECEA7002028EE /* Components */,
 				6DE428362A9F99BA00617F75 /* Modules */,
-				6DE4281B2A9F69DA00617F75 /* APIConstants */,
-				6D143D842A9951B500A159A0 /* Service */,
+				6D4ADB8A2ACF3B35002662D0 /* Utilities */,
 			);
 			path = CryptoTraceX;
 			sourceTree = "<group>";
