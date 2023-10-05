@@ -42,7 +42,7 @@ final class OverviewPresenter: OverviewPresenterProtocol {
     // MARK: - Methods
     
     func routeToDetailScreen(coinName: String) {
-        //router.showDetaileScreen(coinName: coinName)
+        router.showDetaileScreen(coinName: coinName)
     }
     
     func routeToWebSite(url: String) {

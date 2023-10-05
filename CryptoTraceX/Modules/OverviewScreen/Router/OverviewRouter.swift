@@ -9,7 +9,7 @@ import UIKit
 
 protocol OverviewRouterProtocol: AnyObject {
     
-    //func showDetaileScreen(coinName: String)
+    func showDetaileScreen(coinName: String)
     func showWebsite(url: String)
     func showAlert()
 }
@@ -47,11 +47,11 @@ final class OverviewRouter: OverviewRouterProtocol {
     
     // MARK: - Methods
     
-//    func showDetaileScreen(coinName: String) {
-//        let detailViewController = DetailBuilder(coinName: coinName).toPresent()
-//        detailViewController.modalPresentationStyle = .fullScreen
-//        overViewController?.show(detailViewController, sender: nil)
-//    }
+    func showDetaileScreen(coinName: String) {
+        let detailViewController = DetailBuilder(coinName: coinName).toPresent()
+        detailViewController.modalPresentationStyle = .fullScreen
+        overViewController?.show(detailViewController, sender: nil)
+    }
     
     func showWebsite(url: String) {
         guard let finallURL = URL(string: url) else {
