@@ -29,6 +29,7 @@
 		6D4ADB802ACF2FC1002662D0 /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADB7F2ACF2FC1002662D0 /* DetailBuilder.swift */; };
 		6D4ADB822ACF2FEF002662D0 /* CoinDetailInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADB812ACF2FEF002662D0 /* CoinDetailInfoTableViewCell.swift */; };
 		6D4ADB842ACF2FFE002662D0 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADB832ACF2FFE002662D0 /* DescriptionTableViewCell.swift */; };
+		6D4ADB8E2ACF3B80002662D0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4ADB8D2ACF3B80002662D0 /* String+Extension.swift */; };
 		6DE428182A9F68DB00617F75 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE428172A9F68DB00617F75 /* APICaller.swift */; };
 		6DE4281A2A9F690100617F75 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE428192A9F690100617F75 /* URLBuilder.swift */; };
 		6DE4281D2A9F6A2400617F75 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4281C2A9F6A2400617F75 /* APIConstants.swift */; };
@@ -61,6 +62,7 @@
 		6D4ADB7F2ACF2FC1002662D0 /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
 		6D4ADB812ACF2FEF002662D0 /* CoinDetailInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailInfoTableViewCell.swift; sourceTree = "<group>"; };
 		6D4ADB832ACF2FFE002662D0 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		6D4ADB8D2ACF3B80002662D0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		6DE428172A9F68DB00617F75 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		6DE428192A9F690100617F75 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		6DE4281C2A9F6A2400617F75 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -134,12 +136,11 @@
 		6D1715002A8C342500ADC502 /* CryptoTraceX */ = {
 			isa = PBXGroup;
 			children = (
+				6D4ADB8A2ACF3B35002662D0 /* Utilities */,
 				6D2E2B482ACECEA7002028EE /* Components */,
-				6DE428372A9F99CD00617F75 /* Resources */,
 				6DE428362A9F99BA00617F75 /* Modules */,
 				6DE4281B2A9F69DA00617F75 /* APIConstants */,
 				6D143D842A9951B500A159A0 /* Service */,
-				6DE428352A9F98FD00617F75 /* SupportingFiles */,
 			);
 			path = CryptoTraceX;
 			sourceTree = "<group>";
@@ -285,6 +286,32 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		6D4ADB8A2ACF3B35002662D0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6D4ADB8C2ACF3B6A002662D0 /* Extensions */,
+				6DE428352A9F98FD00617F75 /* SupportingFiles */,
+				6D4ADB8B2ACF3B40002662D0 /* Images */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6D4ADB8B2ACF3B40002662D0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6D17150A2A8C342700ADC502 /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		6D4ADB8C2ACF3B6A002662D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6D4ADB8D2ACF3B80002662D0 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		6DE4281B2A9F69DA00617F75 /* APIConstants */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,14 +340,6 @@
 				6D2E2B312ACE2E2D002028EE /* MainTabBarScreen */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		6DE428372A9F99CD00617F75 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				6D17150A2A8C342700ADC502 /* Assets.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		C82DA52D81A7F2F9ED4A6F96 /* Pods */ = {
@@ -462,6 +481,7 @@
 				6D4ADB7C2ACF2F9E002662D0 /* DetailViewController.swift in Sources */,
 				6D2E2B452ACE3521002028EE /* OverviewRouter.swift in Sources */,
 				6D1283542ACF2AA100D776CA /* MainTableViewCell.swift in Sources */,
+				6D4ADB8E2ACF3B80002662D0 /* String+Extension.swift in Sources */,
 				6D4ADB802ACF2FC1002662D0 /* DetailBuilder.swift in Sources */,
 				6D4ADB792ACF2F67002662D0 /* DetailModel.swift in Sources */,
 				6D2E2B412ACE34EC002028EE /* OverviewViewController.swift in Sources */,
@@ -609,7 +629,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptoTraceX/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = CryptoTraceX/Utilities/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -637,7 +657,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptoTraceX/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = CryptoTraceX/Utilities/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

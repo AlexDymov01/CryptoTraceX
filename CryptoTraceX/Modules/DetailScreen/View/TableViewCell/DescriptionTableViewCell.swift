@@ -120,6 +120,7 @@ final class DescriptionTableViewCell: UITableViewCell {
     //MARK: - Methods
     
     func configure(with model: CoinDetailModel) {
+        let description = model.description.en.removingHTMLOccurances
         if !description.isEmpty {
             descriptionLabel.text = description
         } else {
