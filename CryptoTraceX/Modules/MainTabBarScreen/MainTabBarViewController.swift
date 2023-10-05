@@ -98,7 +98,7 @@ final class MainTabBarViewController: UITabBarController {
             
         case .trending:
             let trendingViewController = UINavigationController(
-                rootViewController: UIViewController()
+                rootViewController: TrendingBuilder().toPresent()
             )
             setupTabBarItem(
                 for: trendingViewController,
