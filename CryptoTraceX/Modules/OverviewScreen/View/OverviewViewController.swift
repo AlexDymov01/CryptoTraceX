@@ -17,7 +17,7 @@ protocol OverviewViewControllerProtocol: AnyObject {
     func showAlertRetryRequest(title: String, message: String?, titleAction: String)
 }
 
-final class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+final class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, OverviewViewControllerProtocol {
     
     // MARK: - Private Constants
     
@@ -343,11 +343,8 @@ final class OverviewViewController: UIViewController, UITableViewDataSource, UIT
     ) -> CGFloat {
         return Constants.Layout.overViewCollectionViewMinimumLineSpacing
     }
-}
 
-// MARK: - OverviewViewControllerProtocol
-
-extension OverviewViewController: OverviewViewControllerProtocol {
+    // MARK: - OverviewViewControllerProtocol
     
     func getGlobalData(globalData: OverviewGlobalData) {
         self.globalData = globalData
@@ -395,4 +392,3 @@ extension OverviewViewController: OverviewViewControllerProtocol {
         self.present(alertController, animated: true, completion: nil)
     }
 }
-

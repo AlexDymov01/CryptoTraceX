@@ -14,7 +14,7 @@ protocol DetailViewControllerProtocol: AnyObject {
     func showAlertRetryRequest(title: String, message: String?, titleAction: String)
 }
 
-final class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailViewControllerProtocol {
     
     // MARK: - Private Constants
     
@@ -182,11 +182,9 @@ final class DetailViewController: UIViewController, UITableViewDelegate, UITable
     func set(presenter: DetailPresenterProtocol?) {
         self.presenter = presenter
     }
-}
-
-// MARK: - DetailViewControllerProtocol
-
-extension DetailViewController: DetailViewControllerProtocol {
+    
+    // MARK: - DetailViewControllerProtocol
+    
     func getDetailInfo(coin: CoinDetailModel, coinNameID: String) {
         self.coin = coin
         self.coinID = coinNameID

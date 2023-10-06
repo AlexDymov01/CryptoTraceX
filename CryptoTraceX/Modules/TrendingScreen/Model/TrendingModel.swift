@@ -30,4 +30,3 @@ struct Item: Codable {
         case id, name, large
     }
 }
-

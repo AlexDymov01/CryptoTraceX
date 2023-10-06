@@ -49,5 +49,3 @@ final class FollowingPresenter: FollowingPresenterProtocol {
         router.showDetailScreen(coinName: coinName)
     }
 }
-
-

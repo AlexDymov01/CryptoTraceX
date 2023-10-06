@@ -182,4 +182,3 @@ final class CoinDetailInfoTableViewCell: UITableViewCell {
         )
     }
 }
-

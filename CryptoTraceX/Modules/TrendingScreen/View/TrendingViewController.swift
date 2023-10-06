@@ -14,7 +14,7 @@ protocol TrendingViewControllerProtocol: AnyObject {
     func showAlertRetryRequest(title: String, message: String?, titleAction: String)
 }
 
-final class TrendingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class TrendingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TrendingViewControllerProtocol {
     
     // MARK: - Private Constants
     
@@ -178,11 +178,9 @@ final class TrendingViewController: UIViewController, UITableViewDataSource, UIT
     func set(presenter: TrendingPresenterProtocol?) {
         self.presenter = presenter
     }
-}
-
-// MARK: - TrendingViewControllerProtocol
-
-extension TrendingViewController: TrendingViewControllerProtocol {
+    
+    // MARK: - TrendingViewControllerProtocol
+    
     func getCrypto(coins: [TrendingModel]) {
         self.cryptos = coins
         trendingCryptoTableView.reloadData()
@@ -205,8 +203,3 @@ extension TrendingViewController: TrendingViewControllerProtocol {
         self.present(alertController, animated: true, completion: nil)
     }
 }
-
-
-
-
-

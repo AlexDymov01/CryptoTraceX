@@ -13,7 +13,7 @@ protocol FollowingViewControllerProtocol: AnyObject {
     func getFollowingCoins(coins : [CoinItem])
 }
 
-final class FollowingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class FollowingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FollowingViewControllerProtocol {
     
     // MARK: - Private Constants
     
@@ -197,11 +197,9 @@ final class FollowingViewController: UIViewController, UITableViewDataSource, UI
     func set(presenter: FollowingPresenterProtocol?) {
         self.presenter = presenter
     }
-}
-
-// MARK: - OverviewViewControllerProtocol
-
-extension FollowingViewController: FollowingViewControllerProtocol {
+    
+    // MARK: - OverviewViewControllerProtocol
+    
     func getFollowingCoins(coins: [CoinItem]) {
         self.followingCoins = coins
         self.followingCoinsTableView.reloadData()
@@ -213,8 +211,3 @@ extension FollowingViewController: FollowingViewControllerProtocol {
         }
     }
 }
-
-
-
-
-
