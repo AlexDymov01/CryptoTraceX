@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.overrideUserInterfaceStyle = .dark
         window?.windowScene = windowScene
         window?.rootViewController = MainTabBarBuilder().toPresent()
         window?.makeKeyAndVisible()
