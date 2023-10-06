@@ -15,6 +15,14 @@ protocol TrendingPresenterProtocol: AnyObject {
 
 final class TrendingPresenter: TrendingPresenterProtocol {
     
+    // MARK: - Private Constants
+    
+    private enum Constants {
+        enum Text {
+            static let alertActionText: String = "Retry"
+        }
+    }
+    
     // MARK: - Private Properties
     
     private weak var viewController: TrendingViewControllerProtocol?
@@ -58,7 +66,11 @@ final class TrendingPresenter: TrendingPresenterProtocol {
                 case .success(let coins):
                     self?.viewController?.getCrypto(coins: [coins])
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self?.viewController?.showAlertRetryRequest(
+                        title: error.localizedDescription,
+                        message: nil,
+                        titleAction: Constants.Text.alertActionText
+                    )
                 }
             }
         }

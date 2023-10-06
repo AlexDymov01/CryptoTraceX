@@ -15,11 +15,18 @@ protocol OverviewPresenterProtocol: AnyObject {
     
     func routeToDetailScreen(coinName: String)
     func routeToWebSite(url: String)
-    func showAlert()
 }
 
 
 final class OverviewPresenter: OverviewPresenterProtocol {
+    
+    // MARK: - Private Constants
+    
+    private enum Constants {
+        enum Text {
+            static let alertActionText: String = "Retry"
+        }
+    }
     
     // MARK: - Properties
     
@@ -67,7 +74,11 @@ final class OverviewPresenter: OverviewPresenterProtocol {
                 case .success(let data):
                     self?.view?.getGlobalData(globalData: data)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self?.view?.showAlertRetryRequest(
+                        title: error.localizedDescription,
+                        message: nil,
+                        titleAction: Constants.Text.alertActionText
+                    )
                 }
             }
         }
@@ -91,12 +102,15 @@ final class OverviewPresenter: OverviewPresenterProtocol {
                 case .success(let coins):
                     self?.view?.getCryptos(cryptos: coins)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self?.view?.showAlertRetryRequest(
+                        title: error.localizedDescription,
+                        message: nil,
+                        titleAction: Constants.Text.alertActionText
+                    )
                 }
             }
         }
     }
-    
     
     func getExchanges() {
         guard let baseURL = URL(string: APIConstants.baseUrl) else {
@@ -116,14 +130,13 @@ final class OverviewPresenter: OverviewPresenterProtocol {
                 case .success(let exchanges):
                     self?.view?.getExchanges(exchanges: exchanges)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self?.view?.showAlertRetryRequest(
+                        title: error.localizedDescription,
+                        message: nil,
+                        titleAction: Constants.Text.alertActionText
+                    )
                 }
             }
         }
     }
-    
-    func showAlert() {
-        router.showAlert()
-    }
 }
-

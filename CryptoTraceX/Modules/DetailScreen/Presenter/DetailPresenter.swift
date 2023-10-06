@@ -19,6 +19,15 @@ protocol DetailPresenterProtocol: AnyObject {
 
 final class DetailPresenter: DetailPresenterProtocol {
     
+    // MARK: - Private Constants
+    
+    private enum Constants {
+        enum Text {
+            static let alertActionText: String = "Retry"
+            static let notificationName: String = "saved"
+        }
+    }
+    
     // MARK: - Private Properties
     
     private weak var view: DetailViewControllerProtocol?
@@ -55,7 +64,11 @@ final class DetailPresenter: DetailPresenterProtocol {
                 case .success(let coin):
                     self.view?.getDetailInfo(coin: coin, coinNameID: self.coinName)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self.view?.showAlertRetryRequest(
+                        title: error.localizedDescription,
+                        message: nil,
+                        titleAction: Constants.Text.alertActionText
+                    )
                 }
             }
         }
@@ -65,7 +78,12 @@ final class DetailPresenter: DetailPresenterProtocol {
         DataPersistanceManager.shared.saveCoinWith(model: coin, id: id) { result in
             switch result {
             case .success():
-                NotificationCenter.default.post(name: NSNotification.Name("saved"), object: nil)
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(
+                    Constants.Text.notificationName
+                    ),
+                    object: nil
+                )
             case .failure(let error):
                 print(error.localizedDescription)
             }

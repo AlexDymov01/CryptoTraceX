@@ -11,6 +11,7 @@ import SnapKit
 protocol DetailViewControllerProtocol: AnyObject {
     
     func getDetailInfo(coin : CoinDetailModel, coinNameID: String)
+    func showAlertRetryRequest(title: String, message: String?, titleAction: String)
 }
 
 final class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -20,6 +21,7 @@ final class DetailViewController: UIViewController, UITableViewDelegate, UITable
     private enum Constants {
         enum Layout {
             static let numberOfRowsInSection: CGFloat = 2
+            static let alertControllerCornerRadius : CGFloat = 20
         }
         
         enum Text {
@@ -191,5 +193,21 @@ extension DetailViewController: DetailViewControllerProtocol {
         self.title = coin.name
         cryptoDetailsTableView.reloadData()
         activityIndicator.stopAnimating()
+    }
+    
+    func showAlertRetryRequest(title: String, message: String?, titleAction: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let customAction = UIAlertAction(title: titleAction, style: .default) { _ in
+            self.presenter?.getDetailInfo()
+        }
+        alertController.addAction(customAction)
+        alertController.view.tintColor = UIColor.white
+        alertController.view.backgroundColor = UIColor.black
+        alertController.view.layer.cornerRadius = Constants.Layout.alertControllerCornerRadius
+        self.present(alertController, animated: true, completion: nil)
     }
 }

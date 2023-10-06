@@ -11,6 +11,7 @@ import SnapKit
 protocol TrendingViewControllerProtocol: AnyObject {
     
     func getCrypto(coins : [TrendingModel])
+    func showAlertRetryRequest(title: String, message: String?, titleAction: String)
 }
 
 final class TrendingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -23,6 +24,7 @@ final class TrendingViewController: UIViewController, UITableViewDataSource, UIT
             static let trendingTableViewHeaderViewHeight: CGFloat = 20
             static let trendingCryptoTableViewTopOffset: CGFloat = 30
             static let trendingCryptoTableViewCellHeight = 100
+            static let alertControllerCornerRadius: CGFloat = 20
         }
         
         enum Text {
@@ -185,6 +187,22 @@ extension TrendingViewController: TrendingViewControllerProtocol {
         self.cryptos = coins
         trendingCryptoTableView.reloadData()
         activityIndicator.stopAnimating()
+    }
+    
+    func showAlertRetryRequest(title: String, message: String?, titleAction: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let customAction = UIAlertAction(title: titleAction, style: .default) { _ in
+            self.presenter?.getTrendingCryptos()
+        }
+        alertController.addAction(customAction)
+        alertController.view.tintColor = UIColor.white
+        alertController.view.backgroundColor = UIColor.black
+        alertController.view.layer.cornerRadius = Constants.Layout.alertControllerCornerRadius
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

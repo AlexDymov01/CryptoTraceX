@@ -13,6 +13,8 @@ protocol OverviewViewControllerProtocol: AnyObject {
     func getGlobalData(globalData: OverviewGlobalData)
     func getCryptos(cryptos: [OverviewTableViewCoin])
     func getExchanges(exchanges: [OverviewCollectionViewExchange])
+    
+    func showAlertRetryRequest(title: String, message: String?, titleAction: String)
 }
 
 final class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -34,6 +36,7 @@ final class OverviewViewController: UIViewController, UITableViewDataSource, UIT
             static let overViewTableViewHeaderViewHeight: CGFloat = 20
             static let overViewTableViewTopOffset: CGFloat = 25
             static let overViewCollectionViewMinimumLineSpacing: CGFloat = 20
+            static let alertControllerCornerRadius: CGFloat = 10
         }
         
         enum Text {
@@ -41,10 +44,16 @@ final class OverviewViewController: UIViewController, UITableViewDataSource, UIT
             static let btcDominanceStackViewTitle: String = "BTC Dominance"
             static let dailyMarketVolumeStackViewTitle: String = "Daily Volume"
             static let navigationItemTitle: String = "CryptoTraceX"
+            static let infoAlertControllerTitle: String = "Warning"
+            static let infoAlertControllerActionTitle: String = "Ok"
             static let backButtonTitle: String = "Back"
             static let totalMarketCapValueText: String = "usd"
             static let marketCapPercentageText: String = "btc"
             static let totalVolumeText: String = "usd"
+            static let infoAlertControllerMessage: String = """
+                                                        The information provided here is for informational purposes only.
+                                                        Financial decisions should be made with caution.
+                                                        """
         }
         
         enum Value {
@@ -246,8 +255,25 @@ final class OverviewViewController: UIViewController, UITableViewDataSource, UIT
         infoButton.tintColor = .white
     }
     
+    private func showAlertInfo(title: String, message: String?, titleAction: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let customAction = UIAlertAction(title: titleAction, style: .cancel)
+        alertController.addAction(customAction)
+        alertController.view.tintColor = UIColor.white
+        alertController.view.backgroundColor = UIColor.black
+        alertController.view.layer.cornerRadius = Constants.Layout.alertControllerCornerRadius
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @objc private func showCustomAlert(sender : UIButton) {
-        presenter?.showAlert()
+        showAlertInfo(title: Constants.Text.infoAlertControllerTitle,
+                      message: Constants.Text.infoAlertControllerMessage,
+                      titleAction: Constants.Text.infoAlertControllerActionTitle
+        )
     }
     
     // MARK: - Injection
@@ -351,6 +377,22 @@ extension OverviewViewController: OverviewViewControllerProtocol {
     func getExchanges(exchanges: [OverviewCollectionViewExchange]) {
         self.exchanges = exchanges
         overviewCollectionView.reloadData()
+    }
+    
+    func showAlertRetryRequest(title: String, message: String?, titleAction: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let customAction = UIAlertAction(title: titleAction, style: .default) { _ in
+            self.fetchData()
+        }
+        alertController.addAction(customAction)
+        alertController.view.tintColor = UIColor.white
+        alertController.view.backgroundColor = UIColor.black
+        alertController.view.layer.cornerRadius = Constants.Layout.alertControllerCornerRadius
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

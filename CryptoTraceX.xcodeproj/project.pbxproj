@@ -133,9 +133,7 @@
 		6D143D842A9951B500A159A0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				6DE4281B2A9F69DA00617F75 /* APIConstants */,
-				6DE428172A9F68DB00617F75 /* APICaller.swift */,
-				6DE428192A9F690100617F75 /* URLBuilder.swift */,
+				6DF764BD2AD0277800B5DD17 /* Network */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -480,6 +478,16 @@
 				6D2E2B312ACE2E2D002028EE /* MainTabBarScreen */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		6DF764BD2AD0277800B5DD17 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6DE428192A9F690100617F75 /* URLBuilder.swift */,
+				6DE428172A9F68DB00617F75 /* APICaller.swift */,
+				6DE4281B2A9F69DA00617F75 /* APIConstants */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C82DA52D81A7F2F9ED4A6F96 /* Pods */ = {
